@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日信封</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f8e0e6;
+        }
+        .envelope {
+            width: 200px;
+            height: 200px;
+            background-color: #ffb6c1;
+            border-radius: 15px;
+            position: relative;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" onclick="showMessage()"></div>
+    <div class="message" id="message">
+        <embed src="YOUR_PDF_URL" width="100%" height="600px" type="application/pdf">
+    </div>
+
+    <script>
+        function showMessage() {
+            document.querySelector('.envelope').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
